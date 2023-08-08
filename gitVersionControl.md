@@ -117,6 +117,60 @@ Here git will automatically use the **<remote_branch_name>** as the name of the 
 
 You may have cases where some updated done on the local repo are not reflected or pushed to the remote repo or vice versa. You can check the variation or differences by usinng:
 
+Let's say you made some changes, and committed it locally
+
+```terminal
+git add .
+```
+
+```terminal
+git commit -m"Added some changes"
+```
+
+This command will show the variations between the local and remote repo.
+
 ```terminal
 git branch -v
 ```
+
+
+### Deleting branches
+
+We can delete branches that we want to. 
+
+**NOTE:** You can not delete a branch that you are currently on, the **HEAD** branch. If you wish to delete a branch, you it must not be the current **HEAD** branch.
+
+```terminal
+git branch -d <branch_name>
+```
+
+#### Error warnings
+
+Sometimes you get error warnings when you try to delete a branch. This comes when ever you have a branch that has commits that are not on any other branch. Git warns you and you can still go ahead using **-f** (force) flag, but be careful. 
+
+Yes, you can retrieve the deleted branch, but its not easy to do.
+
+
+### Deleting remote branches
+
+You can also delete remote branches if you want. To try this out, let's first create a local branch and publish it to the remote repo after which we go over how to delete it.
+
+Remember the branch we deleted earlier. Its still on the remote repo since we did not publish the changes we made locally. Let's delete it.
+
+```terminal
+git push origin --delete my-new-branch
+```
+
+**NOTE:** Always delete the associated branches when you delete a branch. By associate branches, I mean both local and remote to keep you git repo clean of clutter.
+
+### Merging branches
+
+This basically means taking changes from one branch and bringing them over to your current head branch.
+
+Integrating current HEAD branch with another branch.
+
+Here are the steps you need to follow to merge branchs:
+
+1. Let the branch you want to add changes to from another branch be the current **HEAD** branch
+
+2. Execute the merge command with the name of the branch that has the desired changes.
