@@ -174,3 +174,22 @@ Here are the steps you need to follow to merge branchs:
 1. Let the branch you want to add changes to from another branch be the current **HEAD** branch
 
 2. Execute the merge command with the name of the branch that has the desired changes.
+
+
+### Comparing branches
+
+We can check what is in one branch, but not the other.
+
+```terminal
+git log <branch_1>/...<branch_2>
+```
+
+This command will return things that are in **branch_2**, but not in **branch_1**.
+
+Example: Let's check what's in our **local master**, but not in **origin master**
+
+```terminal
+git log origin/master...master
+```
+
+The output of this command is everything that is in **local master**, but not in **origin/master**
